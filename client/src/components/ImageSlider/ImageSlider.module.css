@@ -1,0 +1,21 @@
+.sertificat-img {
+  width: 500px;
+  height: 340px;
+}
+
+.sertificat {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.sertificat h1 {
+  color: white;
+  font-size: 30px;
+  font-weight: normal;
+  font-family: "WDXL Lubrifont SC", sans-serif;
+  letter-spacing: 0.05em;
+}

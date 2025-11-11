@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import COPY, { type Lang } from '../../interfaces/lang-interface';
 import TypingEffect from '../../components/TextTyping/TypingEffect';
+import { formatInTimeZone } from 'date-fns-tz'
 
 // icons
 import { FaTelegram } from "react-icons/fa";
@@ -14,16 +15,20 @@ import { FaDiscord } from "react-icons/fa";
 import { CiDark } from "react-icons/ci";
 import { CiLight } from "react-icons/ci";
 import { MdLanguage } from "react-icons/md";
+import { RiFolderDownloadFill } from "react-icons/ri";
+import { MdLocationPin } from "react-icons/md";
 
 // images
 import jslogo from '../../assets/JavaScript-logo.png'
 import tslogo from '../../assets/typescript-logo.svg'
-import pylogo from '../../assets/Python-logo-notext.svg.webp'
-import cpplogo from '../../assets/ISO_C++_Logo.svg.png'
+import zustandlogo from '../../assets/zustandlogo.png'
+import reduxlogo from '../../assets/reduxlogo.png'
 import htmllogo from '../../assets/html.png'
 import csslogo from '../../assets/CSS3_logo.svg'
 import reactlogo from '../../assets/react-logo-png_seeklogo-273845.png'
 import expresslogo from '../../assets/expressjs.svg'
+import nodejslogo from '../../assets/nodejs-logo.gif'
+import socketiologo from '../../assets/Socket-iologo.svg'
 import dockerlogo from '../../assets/docker.png'
 import mongologo from '../../assets/mongodb.webp'
 import postgreslogo from '../../assets/postgres.png'
@@ -35,23 +40,20 @@ const Main = () => {
     AOS.init();
   }, []);
 
-  const logos = [
-    { src: jslogo, alt: 'JavaScript' },
-    { src: tslogo, alt: 'TypeScript' },
-    { src: pylogo, alt: 'Python' },
-    { src: cpplogo, alt: 'C++' },
-    { src: htmllogo, alt: 'HTML' },
-    { src: csslogo, alt: 'CSS' },
-    { src: reactlogo, alt: 'React' },
-    { src: expresslogo, alt: 'ExpressJS' },
-    { src: dockerlogo, alt: 'Docker' },
-    { src: mongologo, alt: 'MongoDB' },
-    { src: postgreslogo, alt: 'PostgreSQL' },
-    { src: gitlogo, alt: 'GitHub' },
-  ];
+  const [time, setTime] = useState(new Date());
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTime(new Date());
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
+    const timeZone = 'Europe/Minsk';
+    const formattedTime = formatInTimeZone(time, timeZone, 'HH:mm:ss');
+ 
   const [theme, setTheme] = useState('light');
-
+  const [showCVLangBlock, setShowCVLangBlock] = useState<boolean>(false)
   const [lang, setLang] = useState<Lang>('EN');
+  const T = COPY[lang];
 
   const toggleLang = () => {
     setLang((prevLang) => (prevLang === 'EN' ? 'RU' : 'EN'));
@@ -60,8 +62,6 @@ const Main = () => {
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
-
-  const T = COPY[lang];
 
   return (
     <div className={styles[`${theme === 'light' ? 'container-light' : 'container-dark'}`]}>
@@ -100,7 +100,7 @@ const Main = () => {
 
           <div className={styles['linklogo']} onClick={toggleLang} role="button" aria-label="Toggle language">
             <MdLanguage color='white' size={35} />
-            <span style={{ fontFamily: 'Fuzzy Bubbles', marginLeft: 6 }}>{T.header.langShort}</span>
+            <span style={{ fontFamily: "WDXL Lubrifont SC", marginLeft: -6, fontSize: '25px' }}>{T.header.langShort}</span>
           </div>
         </div>
       </div>
@@ -149,14 +149,62 @@ const Main = () => {
           <h1 style={{ fontSize: '60px', fontWeight: 'bold', fontFamily: "Neucha", color: 'white', letterSpacing: '0.2em' }}>
             {T.skills.title}
           </h1>
-
-          <div className={styles['knowledge-blocks']}>
-            {logos.map((logo, index) => (
-              <div key={index} className={styles['knowledge-block']}>
-                <img src={logo.src} alt={logo.alt} style={{ height: '80%', borderRadius: '15px' }} />
-              </div>
-            ))}
-          </div>
+         <div className={styles['knowledge-blocks']}>
+            <h1>Frontend</h1>
+            <div className={styles['knowlege-blocks-content']}>
+            <div className={styles['knowledge-block']}>
+                <img src={jslogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={tslogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={reactlogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={htmllogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={csslogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={zustandlogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={reduxlogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            </div>
+            <h1>Backend</h1>
+            <div className={styles['knowlege-blocks-content']}>
+            <div className={styles['knowledge-block']}>
+                <img src={nodejslogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={expresslogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={socketiologo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            </div>
+            <h1>{T.skills.third}</h1>
+            <div className={styles['knowlege-blocks-content']}>
+            <div className={styles['knowledge-block']}>
+                <img src={postgreslogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={mongologo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            </div>
+            <h1>{T.skills.fourth}</h1>
+            <div className={styles['knowlege-blocks-content']}>
+            <div className={styles['knowledge-block']}>
+                <img src={gitlogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={dockerlogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            </div>
+        </div>
         </div>
 
         <div className={styles['reactSvg-content']} data-aos="fade" data-aos-offset="500" data-aos-duration="500">
@@ -164,7 +212,33 @@ const Main = () => {
         </div>
       </div>
 
-      <div className={styles['block-last']}></div>
+
+       {/* third block */}
+      <div className={styles['block-last']}>
+        <div className={styles['contact-block']}
+         data-aos="fade-right"
+       data-aos-offset="500"
+       data-aos-duration="500"
+        >
+        <h1>{T.contacts.title}</h1>
+        <a style={{textDecoration: 'none'}} href="https://t.me/theKRIZZIX" aria-label="Telegram-2"><span><FaTelegram color='white' size={70} />- Telegram</span></a>
+         <a style={{textDecoration: 'none'}} href="https://discord.com/users/891394523320705054" aria-label="Discord-2"><span><FaDiscord color='white' size={70} />- Discord</span></a>
+        <span onClick={() => setShowCVLangBlock(!showCVLangBlock)}><RiFolderDownloadFill color='white' size={70}/>{T.contacts.download}</span>
+        <div className={styles[`${!showCVLangBlock ? 'cv-dropdown' : 'cv-dropdown-show'}`]}>
+           <span className={styles['dropdownchoise']}>RU</span> | 
+           <span className={styles['dropdownchoise']}>EN</span>
+         </div>
+        </div>
+        <div className={styles['time-block']}
+         data-aos="fade-left"
+       data-aos-offset="500"
+       data-aos-duration="500"
+        >
+          <h1>My current time:</h1>
+          <p><MdLocationPin color='white' size={50} /> Belarus - Minsk</p>
+          <span>{formattedTime}</span>
+        </div>
+      </div>
     </div>
   );
 };

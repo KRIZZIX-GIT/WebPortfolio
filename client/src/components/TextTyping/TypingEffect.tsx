@@ -37,7 +37,7 @@ const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 100 }) => {
   }, [text, speed]);
 
   return (
-    <span style={{ fontFamily: 'Neucha', letterSpacing: '0.2em' }}>
+    <span style={{ fontFamily: 'Neucha', letterSpacing: '0.1em' }}>
       {displayedText}
     </span>
   );

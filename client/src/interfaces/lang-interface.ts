@@ -20,7 +20,13 @@ export type CopyBlock = {
   experience: ExperienceCopy; 
   skills: {
     title: string;
+    third: string;
+    fourth: string;
   };
+  contacts: {
+    title: string;
+    download: string;
+  }
 };
 
 export const COPY = {
@@ -42,7 +48,13 @@ export const COPY = {
     },
     skills: {
       title: "My skills:",
+      third: "Databases",
+      fourth: "Tools"
     },
+    contacts: {
+      title: "Let's build something amaizing together!",
+      download: "Download CV"
+    }
   },
   RU: {
     header: {
@@ -62,7 +74,13 @@ export const COPY = {
     },
     skills: {
       title: "Мои навыки:",
+      third: "Базы данных",
+      fourth: "Инструменты"
     },
+     contacts: {
+      title: "Давайте построим что-нибудь потрясающее вместе!",
+      download: "Скачать CV"
+    }
   },
 } satisfies Record<Lang, CopyBlock>;
 
