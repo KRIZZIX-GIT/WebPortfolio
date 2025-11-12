@@ -59,14 +59,29 @@ const Main = () => {
   const [lang, setLang] = useState<Lang>('EN');
   const T = COPY[lang];
 
-
-
   const toggleLang = () => {
     setLang((prevLang) => (prevLang === 'EN' ? 'RU' : 'EN'));
   };
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  const handleDownloadCVEN = () => {
+    const link = document.createElement('a');
+    link.href = 'URL_TO_YOUR_FILE'; 
+    link.download = 'CV-EN.pdf'; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  const handleDownloadCVRU = () => {
+    const link = document.createElement('a');
+    link.href = 'URL_TO_YOUR_FILE'; 
+    link.download = 'CV-RU.pdf'; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -125,11 +140,11 @@ const Main = () => {
 
           <div className={styles['devider']}></div>
 
-          <div className={styles['linklogo']} onClick={toggleTheme} role="button" aria-label="Toggle theme">
+          <div className={styles['linklogo2']} onClick={toggleTheme} role="button" aria-label="Toggle theme">
             {theme === 'light' ? <CiDark color='white' size={35} /> : <CiLight color='white' size={35} />}
           </div>
 
-          <div className={styles['linklogo']} onClick={toggleLang} role="button" aria-label="Toggle language">
+          <div className={styles['linklogo2']} onClick={toggleLang} role="button" aria-label="Toggle language">
             <MdLanguage color='white' size={35} />
             <span style={{ fontFamily: "WDXL Lubrifont SC", marginLeft: -6, fontSize: '25px' }}>{T.header.langShort}</span>
           </div>
@@ -138,15 +153,15 @@ const Main = () => {
 
       {/* first block */}
       <div className={styles['block-first']}>
-  <div className={styles['block-first-content']}>
-    <div className={styles['main-info-block']}>
-      <p style={{ fontSize: '90px', fontWeight: 'bold', fontFamily: "Neucha", letterSpacing: '0.1em' }}>
+      <div className={styles['block-first-content']}>
+       <div className={styles['main-info-block']}>
+      <span className={styles['main-info-block-h1']}>
         {T.hero.hi}
-      </p>
-      <p style={{ fontSize: '50px', fontFamily: "WDXL Lubrifont SC" }}>
+      </span>
+      <p className={styles['main-info-block-role']}>
         {T.hero.role}
       </p>
-      <p style={{ fontSize: '35px', fontFamily: "WDXL Lubrifont SC" }}>
+      <p className={styles['main-info-block-scroll']}>
         {T.hero.scroll}
       </p>
     </div>
@@ -179,10 +194,10 @@ const Main = () => {
         <div
           className={styles['knowledge-content']}
           data-aos="fade-right"
-          data-aos-offset="500"
+          data-aos-offset="400"
           data-aos-duration="500"
         >
-          <h1 style={{ fontSize: '60px', fontWeight: 'bold', fontFamily: "Neucha", color: 'white', letterSpacing: '0.2em' }}>
+          <h1 className={styles['knowledge-content-h1-main']}>
             {T.skills.title}
           </h1>
          <div className={styles['knowledge-blocks']}>
@@ -247,7 +262,7 @@ const Main = () => {
         </div>
         </div>
 
-        <div className={styles['reactSvg-content']} data-aos="fade" data-aos-offset="500" data-aos-duration="500">
+        <div className={styles['reactSvg-content']} data-aos="fade" data-aos-offset="70" data-aos-duration="500">
           <img src={reactspin} alt="React spinning logo" style={{ height: '100%' }} />
         </div>
       </div>
@@ -256,21 +271,22 @@ const Main = () => {
        {/* third block */}
       <div className={styles['block-last']}>
         <div className={styles['contact-block']}
-         data-aos="fade-right"
+         data-aos="fade"
        data-aos-offset="500"
        data-aos-duration="500"
         >
         <h1>{T.contacts.title}</h1>
-        <a style={{textDecoration: 'none'}} href="https://t.me/theKRIZZIX" aria-label="Telegram-2"><span><FaTelegram color='white' size={70} />- Telegram</span></a>
-         <a style={{textDecoration: 'none'}} href="https://discord.com/users/891394523320705054" aria-label="Discord-2"><span><FaDiscord color='white' size={70} />- Discord</span></a>
-        <span onClick={() => setShowCVLangBlock(!showCVLangBlock)}><RiFolderDownloadFill color='white' size={70}/>{T.contacts.download}</span>
+        <a style={{textDecoration: 'none'}} href="https://t.me/theKRIZZIX" aria-label="Telegram-2"><span><FaTelegram className={styles['contact-icon']} />- Telegram</span></a>
+         <a style={{textDecoration: 'none'}} href="https://discord.com/users/891394523320705054" aria-label="Discord-2"><span><FaDiscord className={styles['contact-icon']} />- Discord</span></a>
+         <a className={styles['github-hidden-link']} style={{textDecoration: 'none'}} href="https://github.com/KRIZZIX-GIT" aria-label="GitHub-2"><span><FaGithub className={styles['contact-icon']} />- GitHub</span></a>
+        <span onClick={() => setShowCVLangBlock(!showCVLangBlock)}><RiFolderDownloadFill className={styles['contact-icon']}/>{T.contacts.download}</span>
         <div className={styles[`${!showCVLangBlock ? 'cv-dropdown' : 'cv-dropdown-show'}`]}>
-           <span className={styles['dropdownchoise']}>RU</span> | 
-           <span className={styles['dropdownchoise']}>EN</span>
+           <span onClick={handleDownloadCVRU} className={styles['dropdownchoise']}>RU</span> | 
+           <span onClick={handleDownloadCVEN} className={styles['dropdownchoise']}>EN</span>
          </div>
         </div>
         <div className={styles['time-block']}
-         data-aos="fade-left"
+         data-aos="fade"
        data-aos-offset="500"
        data-aos-duration="500"
         >

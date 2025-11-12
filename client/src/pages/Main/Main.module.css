@@ -114,6 +114,15 @@ body{
   color: white;
   cursor: pointer;
 }
+.linklogo2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
 
 
 /* first block */
@@ -188,6 +197,20 @@ body{
   padding: 30px;
   gap: 10px;
 }
+.main-info-block-h1 {
+  font-size: 90px;
+  font-weight: bold;
+  font-family: "Neucha";
+  letter-spacing: 0.1em;          
+}
+.main-info-block-role {
+  font-size: 50px;
+  font-family: "WDXL Lubrifont SC";
+}
+.main-info-block-scroll {
+  font-size: 35px;
+  font-family: "WDXL Lubrifont SC";
+}
 .ex-info-block{
   display: flex;
   justify-content: center;
@@ -232,6 +255,13 @@ body{
   margin-left: 100px;
   z-index: 2;
 }
+.knowledge-content-h1-main{
+  font-size: 60px;
+  font-weight: bold;
+  font-family: 'Neucha';
+  color: white;
+  letter-spacing: 0.2em;
+}
 .knowlege-blocks-content{
   display: flex;
   gap: 10px;
@@ -266,6 +296,7 @@ body{
   transform: scale(1.1);
 }
 .reactSvg-content {
+  height: 1000px;
   position: absolute;
   right: -700px; 
   animation: react-spin 7s linear infinite;
@@ -308,6 +339,10 @@ body{
   font-weight: bold;
   font-family: "WDXL Lubrifont SC", sans-serif;
   letter-spacing: 0.05em;
+}
+.contact-icon{
+  color: white;
+  font-size: 70px;
 }
 .contact-block span{
    color: white;
@@ -399,4 +434,242 @@ body{
   font-weight: bold;
   font-family: "WDXL Lubrifont SC", sans-serif;
   letter-spacing: 0.05em;
+}
+.github-hidden-link{
+  display: none;
+}
+
+
+
+
+/* meeeeeeeeeeeeeeediaaaaaaaaaaa */
+@media (max-width: 1600px){
+  .block-last{
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+@media (max-width: 1400px) {
+   .main-info-block-h1{
+    font-size: 70px;
+   }
+   .main-info-block-scroll{
+    font-size: 25px;
+   }
+   .main-info-block-role{
+     font-size: 40px;
+   }
+   .ex-info-block{
+    font-size: 170px;
+   }
+   .ex-info-block-text{
+    font-size: 40px;
+   }
+   .knowledge-block{
+    width: 70px;
+    height: 70px;
+   }
+   .knowledge-blocks h1{
+    font-size: 30px;
+   }
+   .knowledge-content-h1-main{
+    font-size: 50px;
+   }
+  .contact-block{
+    max-width: 600px;
+  }
+  .contact-block h1, p:first-child{
+  font-size: 40px;
+}
+.contact-block span{
+  font-size: 29px;
+}
+.cv-dropdown, .cv-dropdown-show{
+  font-size: 34px;
+}
+.contact-icon{
+  font-size: 50px;
+}
+.time-block h1{
+  font-size: 40px;
+}
+.time-block span{
+  font-size: 50px;
+}
+.time-block p{
+  font-size: 30px;
+}
+.dropdownchoise:hover {
+  font-size: 34px;
+}
+}
+@media (max-width: 1200px){
+  .main-info-block{
+    justify-content: center;
+    align-items: center;
+  }
+  .block-first-content{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  .block-last{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    padding-top: 200px;
+  }
+  .contact-block{
+    max-width: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-block h1{
+    text-align: center;
+  }
+  .time-block{
+    position: absolute;
+    top: 130px;
+    right: -10px;
+    gap: 0px;
+  }
+  .time-block h1{
+  font-size: 30px;
+}
+.time-block span{
+  font-size: 40px;
+}
+.time-block p{
+  font-size: 20px;
+}
+}
+@media (max-width: 1000px){
+  .left{
+    font-size: 27px;
+  }
+  .linklogo{
+    display: none;
+  }
+  .devider{
+    display: none;
+  }
+  .knowledge-content{
+    margin-left: 15px;
+  }
+  .github-hidden-link{
+   display: flex;
+}
+.time-block{
+   display: none;
+  }
+  .block-last{
+    padding-top: 80px;
+  }
+}
+@media (max-width: 800px){
+  .main-info-block-h1{
+    font-size: 50px;
+   }
+   .main-info-block-scroll{
+    font-size: 20px;
+   }
+   .main-info-block-role{
+     font-size: 25px;
+   }
+   .ex-info-block{
+    font-size: 140px;
+   }
+   .ex-info-block-text{
+    font-size: 35px;
+    -webkit-text-stroke: 0px;
+    color: white;
+   }
+   .container-light,
+   .container-dark {
+    padding: 20px;
+   }
+   .main-info-block{
+    padding: 0;
+   }
+   
+}
+@media (max-width: 700px){
+  .knowledge-block{
+    width: 60px;
+    height: 60px;
+   }
+   .knowledge-blocks h1{
+    font-size: 25px;
+   }
+   .knowledge-content-h1-main{
+    font-size: 45px;
+   }
+   .block-second{
+    flex-direction: column;
+    overflow: hidden;
+    gap: 15px;
+   }
+   .knowledge-content{
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+   }
+   .knowledge-blocks{
+     justify-content: center;
+     align-items: center;
+   }
+   .knowlege-blocks-content{
+     justify-content: center;
+     align-items: center;
+   }
+   .reactSvg-content{
+    position: relative;
+    right: 0;
+    margin-top: 30px;
+    height: 400px;
+   }
+   .contact-info-cont{
+    padding: 15px;
+   }
+}
+@media (max-width: 550px){
+   .left{
+    font-size: 20px;
+    letter-spacing: 0em;
+   }
+}
+@media (max-width: 450px){
+  .main-info-block-h1{
+    font-size: 45px;
+   }
+   .main-info-block-scroll{
+    font-size: 20px;
+   }
+   .main-info-block-role{
+     font-size: 25px;
+   }
+   .ex-info-block{
+    font-size: 110px;
+   }
+   .ex-info-block-text{
+    font-size: 30px;
+   }
+    .reactSvg-content{
+    margin-top: 20px;
+   }
+   .knowledge-content{
+    margin-top: 50px;
+   }
+   .knowledge-block{
+    height: 50px;
+    width: 50px;
+   }
+   .knowledge-content-h1-main{
+    font-size: 35px;
+   }
+   .contact-block h1{
+    font-size: 33px;
+   }
 }

@@ -36,7 +36,7 @@ export type CopyBlock = {
 export const COPY = {
   EN: {
     header: {
-      portfolio: "-  KRIZZIX's Web Portfolio",
+      portfolio: "KRIZZIX's Web Portfolio",
       contacts: "contacts:",
       langShort: "EN",
     },
@@ -66,7 +66,7 @@ export const COPY = {
   },
   RU: {
     header: {
-      portfolio: "-  Веб‑портфолио KRIZZIX",
+      portfolio: "Веб‑портфолио KRIZZIX",
       contacts: "контакты:",
       langShort: "RU",
     },
