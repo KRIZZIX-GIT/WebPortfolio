@@ -16,7 +16,7 @@ import { CiDark } from "react-icons/ci";
 import { CiLight } from "react-icons/ci";
 import { MdLanguage } from "react-icons/md";
 import { RiFolderDownloadFill } from "react-icons/ri";
-import { MdLocationPin } from "react-icons/md";
+import { RiArrowDownWideLine } from "react-icons/ri";
 
 // images
 import jslogo from '../../assets/JavaScript-logo.png'
@@ -34,12 +34,12 @@ import mongologo from '../../assets/mongodb.webp'
 import postgreslogo from '../../assets/postgres.png'
 import gitlogo from '../../assets/github-logo.png'
 import reactspin from '../../assets/react-spin.png'
+import npmlogo from '../../assets/Npm-logo.svg.png'
 
 const Main = () => {
   useEffect(() => {
     AOS.init();
   }, []);
-
   const [time, setTime] = useState(new Date());
     useEffect(() => {
         const interval = setInterval(() => {
@@ -51,9 +51,15 @@ const Main = () => {
     const formattedTime = formatInTimeZone(time, timeZone, 'HH:mm:ss');
  
   const [theme, setTheme] = useState('light');
+  useEffect(() => {
+  document.documentElement.setAttribute('data-theme', theme); 
+}, [theme]);
+
   const [showCVLangBlock, setShowCVLangBlock] = useState<boolean>(false)
   const [lang, setLang] = useState<Lang>('EN');
   const T = COPY[lang];
+
+
 
   const toggleLang = () => {
     setLang((prevLang) => (prevLang === 'EN' ? 'RU' : 'EN'));
@@ -64,6 +70,31 @@ const Main = () => {
   };
 
   return (
+     <>
+     <style>
+    {`
+      ::-webkit-scrollbar {
+        width: 15px;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+      }
+      /* Светлая тема */
+      [data-theme='light'] ::-webkit-scrollbar-track {
+        padding: 3px;
+        background: linear-gradient(210deg, #ea9dff 45%, #6ba1ff 55%);
+      }
+      /* Темная тема */
+      [data-theme='dark'] ::-webkit-scrollbar-track {
+        padding: 3px;
+        background: linear-gradient(210deg, #6a4f9f 45%, #203f82ff 55%);
+      }
+      /* Прозрачный ползунок */
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0); 
+      }
+    `}
+  </style>
     <div className={styles[`${theme === 'light' ? 'container-light' : 'container-dark'}`]}>
       {/* header */}
       <div className={styles['contact-info-cont']}>
@@ -107,36 +138,41 @@ const Main = () => {
 
       {/* first block */}
       <div className={styles['block-first']}>
-        <div className={styles['main-info-block']}>
-          <p style={{ fontSize: '90px', fontWeight: 'bold', fontFamily: "Neucha", letterSpacing: '0.1em' }}>
-            {T.hero.hi}
-          </p>
+  <div className={styles['block-first-content']}>
+    <div className={styles['main-info-block']}>
+      <p style={{ fontSize: '90px', fontWeight: 'bold', fontFamily: "Neucha", letterSpacing: '0.1em' }}>
+        {T.hero.hi}
+      </p>
+      <p style={{ fontSize: '50px', fontFamily: "WDXL Lubrifont SC" }}>
+        {T.hero.role}
+      </p>
+      <p style={{ fontSize: '35px', fontFamily: "WDXL Lubrifont SC" }}>
+        {T.hero.scroll}
+      </p>
+    </div>
 
-          <p style={{ fontSize: '50px', fontFamily: "WDXL Lubrifont SC" }}>
-            {T.hero.role}
-          </p>
-
-          <p style={{ fontSize: '35px', fontFamily: "WDXL Lubrifont SC" }}>
-            {T.hero.scroll}
-          </p>
-        </div>
-
-        <div className={styles['ex-info-block']}>
-          4
-          <div className={styles['ex-info-block-text']}>
-            {lang === 'EN' ? (
-              <>
-                <span>{T.experience.years}</span> <span>{T.experience.of}</span> <span>{T.experience.experience}</span>
-              </>
-            ) : (
-              <>
-                <span>{T.experience.years}</span>
-                <span>{T.experience.experience}</span>
-              </>
-            )}
-          </div>
-        </div>
+    <div className={styles['ex-info-block']}>
+     4
+      <div className={styles['ex-info-block-text']}>
+        {lang === 'EN' ? (
+          <>
+            <span>{T.experience.years}</span> <span>{T.experience.of}</span> <span>{T.experience.experience}</span>
+          </>
+        ) : (
+          <>
+            <span>{T.experience.years}</span>
+            <span>{T.experience.experience}</span>
+          </>
+        )}
       </div>
+    </div>
+  </div>
+
+  <div className={styles['scroll-arrows']} aria-hidden="true">
+    <RiArrowDownWideLine className={styles['arrow']} style={{marginTop: '-30px', position: 'absolute'}} size={70} />
+    <RiArrowDownWideLine className={styles['arrow']} size={70} />
+  </div>
+</div>
 
       {/* second block */}
       <div className={styles['block-second']}>
@@ -186,7 +222,19 @@ const Main = () => {
                 <img src={socketiologo} style={{ height: '80%', borderRadius: '15px' }} />
             </div>
             </div>
-            <h1>{T.skills.third}</h1>
+             <h1>{T.skills.tools}</h1>
+            <div className={styles['knowlege-blocks-content']}>
+            <div className={styles['knowledge-block']}>
+                <img src={gitlogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={dockerlogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={npmlogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            </div>
+            <h1>{T.skills.databases}</h1>
             <div className={styles['knowlege-blocks-content']}>
             <div className={styles['knowledge-block']}>
                 <img src={postgreslogo} style={{ height: '80%', borderRadius: '15px' }} />
@@ -195,15 +243,7 @@ const Main = () => {
                 <img src={mongologo} style={{ height: '80%', borderRadius: '15px' }} />
             </div>
             </div>
-            <h1>{T.skills.fourth}</h1>
-            <div className={styles['knowlege-blocks-content']}>
-            <div className={styles['knowledge-block']}>
-                <img src={gitlogo} style={{ height: '80%', borderRadius: '15px' }} />
-            </div>
-            <div className={styles['knowledge-block']}>
-                <img src={dockerlogo} style={{ height: '80%', borderRadius: '15px' }} />
-            </div>
-            </div>
+           
         </div>
         </div>
 
@@ -234,12 +274,13 @@ const Main = () => {
        data-aos-offset="500"
        data-aos-duration="500"
         >
-          <h1>My current time:</h1>
-          <p><MdLocationPin color='white' size={50} /> Belarus - Minsk</p>
+          <h1>{T.time.title}</h1>
+          <p>{T.time.location}</p>
           <span>{formattedTime}</span>
         </div>
       </div>
     </div>
+    </>
   );
 };
 

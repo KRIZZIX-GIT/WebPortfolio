@@ -20,12 +20,16 @@ export type CopyBlock = {
   experience: ExperienceCopy; 
   skills: {
     title: string;
-    third: string;
-    fourth: string;
+    databases: string;
+    tools: string;
   };
   contacts: {
     title: string;
     download: string;
+  };
+  time: {
+    title: string;
+    location: string;
   }
 };
 
@@ -39,7 +43,7 @@ export const COPY = {
     hero: {
       hi: "Hi, I'm KRIZZIX",
       role: "I'm a full-stack React developer",
-      scroll: "Scroll down to see my skills and projects",
+      scroll: "Scroll down to see my skills and contacts",
     },
     experience: {
       years: "Years",
@@ -48,12 +52,16 @@ export const COPY = {
     },
     skills: {
       title: "My skills:",
-      third: "Databases",
-      fourth: "Tools"
+      databases: "Databases",
+      tools: "Tools"
     },
     contacts: {
       title: "Let's build something amaizing together!",
       download: "Download CV"
+    },
+    time: {
+      title: 'My current time:',
+      location: ' Belarus - Minsk'
     }
   },
   RU: {
@@ -65,7 +73,7 @@ export const COPY = {
     hero: {
       hi: "Привет, я KRIZZIX",
       role: "Я full‑stack React‑разработчик",
-      scroll: "Листайте вниз, чтобы увидеть мои навыки и проекты",
+      scroll: "Листайте вниз, чтобы увидеть мои навыки и контакты",
     },
     experience: {
       years: "Года",       
@@ -74,12 +82,16 @@ export const COPY = {
     },
     skills: {
       title: "Мои навыки:",
-      third: "Базы данных",
-      fourth: "Инструменты"
+      databases: "Базы данных",
+      tools: "Инструменты"
     },
      contacts: {
       title: "Давайте построим что-нибудь потрясающее вместе!",
       download: "Скачать CV"
+    },
+     time: {
+      title: 'Мое текущее время:',
+      location: ' Беларусь - Минск'
     }
   },
 } satisfies Record<Lang, CopyBlock>;
