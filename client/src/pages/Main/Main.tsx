@@ -272,7 +272,7 @@ const Main = () => {
       <div className={styles['block-last']}>
         <div className={styles['contact-block']}
          data-aos="fade"
-       data-aos-offset="500"
+       data-aos-offset="400"
        data-aos-duration="500"
         >
         <h1>{T.contacts.title}</h1>
@@ -287,7 +287,7 @@ const Main = () => {
         </div>
         <div className={styles['time-block']}
          data-aos="fade"
-       data-aos-offset="500"
+       data-aos-offset="400"
        data-aos-duration="500"
         >
           <h1>{T.time.title}</h1>
