@@ -69,7 +69,7 @@ const Main = () => {
 
   const handleDownloadCVEN = () => {
     const link = document.createElement('a');
-    link.href = 'URL_TO_YOUR_FILE'; 
+    link.href = '../../../CV/CV-EN.pdf'; 
     link.download = 'CV-EN.pdf'; 
     document.body.appendChild(link);
     link.click();
@@ -77,7 +77,7 @@ const Main = () => {
   };
   const handleDownloadCVRU = () => {
     const link = document.createElement('a');
-    link.href = 'URL_TO_YOUR_FILE'; 
+    link.href = '../../../CV/CV-RU.pdf';  
     link.download = 'CV-RU.pdf'; 
     document.body.appendChild(link);
     link.click();
