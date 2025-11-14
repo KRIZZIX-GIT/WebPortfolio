@@ -1,6 +1,6 @@
 import styles from './Main.module.css';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import 'aos/dist/aos.css';
 import AOS from 'aos';
