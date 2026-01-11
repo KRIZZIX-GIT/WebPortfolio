@@ -1,4 +1,4 @@
-import styles from './Main.module.css';
+import styles from './Main.module.sass';
 
 import { useState, useEffect } from 'react';
 
@@ -35,6 +35,7 @@ import postgreslogo from '../../assets/postgres.png'
 import gitlogo from '../../assets/github-logo.png'
 import reactspin from '../../assets/react-spin.png'
 import npmlogo from '../../assets/Npm-logo.svg.png'
+import sasslogo from '../../assets/sasslogo.png'
 
 const Main = () => {
   useEffect(() => {
@@ -106,7 +107,7 @@ const Main = () => {
       }
       /* Прозрачный ползунок */
       ::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0); 
+        background: rgba(255, 255, 255, 0.40); 
       }
     `}
   </style>
@@ -217,6 +218,9 @@ const Main = () => {
             </div>
             <div className={styles['knowledge-block']}>
                 <img src={csslogo} style={{ height: '80%', borderRadius: '15px' }} />
+            </div>
+            <div className={styles['knowledge-block']}>
+                <img src={sasslogo} style={{ height: '80%', borderRadius: '15px' }} />
             </div>
             <div className={styles['knowledge-block']}>
                 <img src={zustandlogo} style={{ height: '80%', borderRadius: '15px' }} />
